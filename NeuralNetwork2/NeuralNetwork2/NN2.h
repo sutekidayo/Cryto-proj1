@@ -31,14 +31,14 @@ private:
   int numWeights;
   
 
-  // Input to Hidden Layers collection of Weights
+  // Input to Hidden Layers collection of Weights and Biases
   vector<float> inputs;
   vector<vector <float>> ihWeights;
   vector<float> ihSums;
   vector<float> ihBiases;
   vector<float> ihOutputs;
 
-  // Hidden to Output Layer collection of Weights
+  // Hidden to Output Layer collection of Weights and Biases
 
   vector<vector<float>> hoWeights;
   vector<float> hoSums;
@@ -60,9 +60,8 @@ private:
 public:
 
   // Constructor, initialize the neural network
-  NN2(int numI, int numH, int numO) {
+  NN2(int numI, int numH, int numO) : numInput(numI), numHidden(numH), numOutput(numO){
      
-	 numInput=numI; numHidden=numH; numOutput=numO;
 	 numWeights = (numInput * numHidden) + (numHidden * numOutput) + numHidden + numOutput;
 	 inputs.resize(numInput);
 	 ihSums.resize(numHidden);
